@@ -1,46 +1,41 @@
-create schema SD_SQL;
+create schema sd_sql;
+-- ctrl + shift + enter
 
-CREATE TABLE student
-(id int not null,
+create table student
+(id int not null unique,
 name varchar(25) not null,
 percentage float not null,
 grade char not null);
 
 describe student;
--- CHANGE TABLE NAME USE ALTER COMMAD AND USED KEYRWORD RENAME --
-ALTER TABLE student RENAME TO tops;
-ALTER TABLE tops RENAME TO student;
 
--- CHANGE COLUMN NAME USE ALTER COMMAND AND USED KEYWORD RENAME --
-ALTER TABLE student RENAME COLUMN id TO no_id;
+-- change table name
+alter table student rename to employee;
+alter table employee rename to student;
 
--- ADD COLUMN USE ALTER COMMAND AND USED KEYWORD ADD --
-ALTER TABLE student ADD COLUMN city varchar(25) NOT NULL;
-ALTER TABLE student ADD COLUMN state varchar(25) NOT NULL;
+describe employee;
 
+-- change column name
+alter table student rename column id to roll_no;
 
--- ADD COLUMN AT SPECIFIC POSITION USE ALTER COMMAND AND USED  KEYWORD MODIFY AND AFTER--
-ALTER TABLE student ADD COLUMN city varchar(25) NOT NULL AFTER grade;
-ALTER TABLE student ADD COLUMN pincode INT NOT NULL AFTER city;
-ALTER TABLE student ADD COLUMN ranks int;
+-- add column
+alter table student add column remarks int;
 
---  CHANGE DATATYPE USE ALTER COMMAND AND USED KEYWORD MODIFY--
-ALTER TABLE student MODIFY pincode varchar(25);
-ALTER TABLE student MODIFY pincode int; 
+-- add column at specific position
+alter table student add column city varchar(25) not null after grade;
 
--- ADD NEW CONSTRAIN USED ALTER COMMAND AND USED KEYWORD MODIFY--
-ALTER TABLE student MODIFY pincode int NOT NULL;
-ALTER TABLE student MODIFY ranks int NOT NULL;
+-- change data type
+alter table student modify remarks varchar(25);
 
--- REMOVE CONSTRAINT USE ALTER COMMAND AND USED KEYWORD MODIFY--
-ALTER TABLE student MODIFY city varchar (25);
+-- add new constraint
+alter table student modify remarks varchar(25) not null;
 
--- DELETE COLUMN USE ALTER COMMAND AND USED KEYWORD DROP--
-ALTER TABLE student DROP COLUMN city;
-ALTER TABLE student DROP COLUMN pincode;
-ALTER TABLE student DROP COLUMN state;
--- DROP TABLE
-DROP TABLE student;
+-- remove constraint
+alter table student modify city varchar(25);
 
--- DROP SCHEMA 
-DROP SCHEMA SD_SQL;
+-- delete column
+alter table student drop column remarks;
+
+drop table student;
+
+drop schema 16_april;
