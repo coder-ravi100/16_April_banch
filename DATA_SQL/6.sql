@@ -1,3 +1,4 @@
+-- RELATION DBMS CONCEPT
 create table users
 (user_id int primary key,
 name varchar(25) not null,

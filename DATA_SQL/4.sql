@@ -1,3 +1,5 @@
+-- DCL (Data Control Language)
+
 create role student;
 
 create user Rohan identified by 'abc@123' default role student;

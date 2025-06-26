@@ -1,3 +1,6 @@
+-- DDL (Data Definination Language)
+
+-- Create Schema (Means Like File Name)
 create schema sd_sql;
 -- ctrl + shift + enter
 

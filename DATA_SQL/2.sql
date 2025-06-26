@@ -1,5 +1,5 @@
 
-create schema 16_april;
+-- DML (Data Manipulation Language)
 
 create table student
 (id int not null unique,
