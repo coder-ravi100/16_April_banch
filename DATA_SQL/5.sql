@@ -5,6 +5,8 @@
 
 
 -- Data for Undo Yaani Data Wapas Aajata Hai
+delete from employees where Employee_id = 100;
+delete from employees where Employee_id = 101;
 
 select * from employees;
 rollback;
