@@ -1,17 +1,22 @@
 -- RELATION DBMS CONCEPT
+-- User Table
 create table users
 (user_id int primary key,
 name varchar(25) not null,
 age int);
 
+-- Insert Data from Users
 insert into users values(101,'Rohan',25);
 insert into users values(102,'Rahul',22);
 insert into users values(103,'Mehul',21);
 insert into users values(104,'Dhairya',14);
-insert into users values(105,'Megha',15);
+insert into users values(105,'Megha',15); 
 
 select * from users;
 
+-- ---------------------------------------
+
+-- Orders Table
 create table orders
 (order_id int primary key auto_increment,
 name varchar(25) not null,
@@ -26,41 +31,50 @@ insert into orders(name,user_id) values('Chocolate',103);
 
 select * from orders;
 
-select * from users
-natural join orders;
+-- --------------------------------------------------------
 
+select * from users natural join orders; -- Query Trigger But Data Not Show
+
+-- Inner Join
 select users.user_id,users.name,orders.name
 from users inner join orders
 on users.user_id = orders.user_id;
 
-select users.user_id,users.name,orders.name
-from users left join orders
-on users.user_id = orders.user_id;
+-- Left Join
+select users.user_id,users.name,orders.name 
+from users left join orders on users.user_id = orders.user_id;
 
-select users.user_id,users.name,orders.name
-from users right join orders
-on users.user_id = orders.user_id;
+-- Right Join
+select  users.user_id,users.name,orders.name
+from users right join orders on users.user_id = orders.user_id;
 
-create table temp1
+-- Use Union And Union All
+-- Table temp 1
+create table  temp1
 (id int not null unique,
 name varchar(25) not null);
 
-insert into temp1 values(101,'qwe');
-insert into temp1 values(102,'asd');
-insert into temp1 values(103,'zxc');
+-- Data insertion
+insert into temp1 values(101,'aaa');
+insert into temp1 values(102,'bbb');
+insert into temp1 values(103,'ccc');
 
+-- Table temp 2
 create table temp2
 (id int not null unique,
 name varchar(25) not null);
 
-insert into temp2 values(101,'qwe');
-insert into temp2 values(102,'fgh');
-insert into temp2 values(103,'bnm');
+-- Data insertion
+insert into temp2 values(101,'aaa');
+insert into temp2 values(102,'fff');
+insert into temp2 values(103,'ggg');
 
-select * from temp1
-union
+-- Union
+select * from temp1 
+union 
 select * from temp2;
 
-select * from temp1
+-- Union All
+select * from temp2 
 union all
 select * from temp2;
