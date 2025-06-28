@@ -55,3 +55,33 @@ delete from new_user where user_id = 102;
 
 select * from Backup_data;
 
+-- Update Table Before And After Trigger
+
+create table Old_User
+(user_id int not null unique,
+name varchar(25) not null,
+age int not null);
+
+create table update_user
+(user_id int,
+name varchar(25),
+age int,
+Stamp time);
+
+create trigger log_update
+after update on sd_sql.old_user
+for each row
+insert into old_user values (old.user_id,new.user_id,old.name,new.name,old.age,new.age,curtime());
+
+drop trigger log_update;
+show triggers;
+
+insert into old_user values(101,'Ridham',25);
+insert into old_user values(102,'Neha',20);
+insert into old_user values(103,'Kajal',35);
+
+select * from Old_User;
+
+update old_user set age = 30, name = 'Ridha s' where user_id = 101;
+
+select * from update_user;
