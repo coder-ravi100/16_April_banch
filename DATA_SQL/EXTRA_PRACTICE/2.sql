@@ -69,3 +69,4 @@ select * from employees where last_name like '%z';
 select * from employees where first_name like '%e%';
 -- Sort ascending
 select * from employees order by salary asc;
+
