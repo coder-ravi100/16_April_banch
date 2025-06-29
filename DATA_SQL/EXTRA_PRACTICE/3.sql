@@ -137,3 +137,88 @@ GROUP BY city,name;
 SELECT city,AVG(marks)
 FROM student
 GROUP BY city;
+
+
+-- PRACTICE Qs
+--  Q1: WRITE THE QUERY TO FIND AVG MARKS IN EACH CITY IN ASCENDING ORDER
+
+SELECT city, AVG(marks)
+FROM student
+GROUP BY city
+ORDER BY city ASC;
+-- OR -----------------
+SELECT city, AVG(marks)
+FROM student
+GROUP BY city
+ORDER BY AVG(marks) ASC;
+--  -----------------------------------------------------------------------------------------
+-- Q2 FOR THE GIVEN TABLE FIND THE TOTAL PAYMENT ACCORDING TO EACH PAYMENT METHOD
+-- FIRST CREATE TABLE THEN FIRE QUERY
+
+CREATE TABLE payment 
+(customer_id int not null unique,
+customer varchar(25) not null,
+mode varchar(25) not null,
+city varchar(25));
+describe payment;
+
+insert into payment values(101,'Olivia Barrett','Netbanking','portiand');
+insert into payment values(102,'Ethan Sinciair','Credit Card','Miami');
+insert into payment values(103,'Maya Hernanadez','Credit Card','Seattle');
+insert into payment values(104,'Liam Donovan','Netbanking','Denver');
+insert into payment values(105,'Sophia  Nguyen','Credit Card','New Orieans');
+insert into payment values(106,'Caleb Foster','Credit Card','Minneapolis');
+insert into payment values(107,'Ava Patel','Credir Card','Phoenix');
+insert into payment values(108,'Lucas Carter','Netbanking','Boston');
+insert into payment values(109,'Isabella Martinez','Netbanking','Navshille');
+insert into payment values(110,'Jackson Brooks','Credit Card','Boston');
+
+select * from payment;
+-- Q2 FOR THE GIVEN TABLE FIND THE TOTAL PAYMENT ACCORDING TO EACH PAYMENT METHOD
+-- GROUP KOIN KOIN BANEGE
+-- NETBANKING
+-- CREDIT
+-- DEBIT
+select mode, max(city),count(customer)
+FROM payment
+GROUP BY mode;
+
+SELECT grade,COUNT(std_id)
+FROM student
+GROUP BY grade
+ORDER BY grade ASC;
+
+-- HAVING CLAUSE
+-- SIMILAR TO WHERE I.E APPLIES SOME CONDITION ON ROWS
+-- USED WHEN WE WANT TO APPLY ANY CONDITION AFTER GROUPING.alter
+
+SELECT city, COUNT(std_id)
+FROM student
+GROUP BY city;
+
+SELECT city, COUNT(std_id)
+FROM student
+GROUP BY city
+HAVING MAX(marks) > 90;
+
+-- GENERAL ORDER
+-- SELECT column(s)
+-- WHERE condition -- condition for rows
+-- FROM table_name
+-- GROUP BY column(s)
+-- HAVING condition -- condition for group 
+-- ORDER BY column(s)asc;
+
+SELECT city
+FROM student
+WHERE grade = 'A'
+GROUP BY city
+HAVING MAX(marks) >= 90
+ORDER BY city ASC;
+
+SELECT city
+FROM student
+WHERE grade = 'A'
+GROUP BY city
+HAVING MAX(marks) >= 90
+ORDER BY city desc;
