@@ -1,10 +1,10 @@
 create table student
-(rollno int not null unique,
+(std_id int not null unique,
 name varchar(25) not null,
 marks int not null,
 grade char,
 city varchar(25));
-alter table student rename column rollno to std_id;
+
 describe student;
 
 insert into student values(101,'Anil',78,'C','Pune');
@@ -44,6 +44,10 @@ WHERE marks + 10 > 100;
 
 SELECT *
 FROM student
+WHERE marks - 10 < 50;
+
+SELECT *
+FROM student
 WHERE marks = 93;
 
 SELECT * 
@@ -54,7 +58,7 @@ AND city = "Mumbai";
 SELECT *  -- TRUE
 FROM student
 WHERE marks > 90 
-AND city = "Mumbai";
+AND city = "Delhi";
 
 SELECT * -- TRUE --> FALSE --> TRUE / FALSE --> TRUE -->TRUE
 FROM student

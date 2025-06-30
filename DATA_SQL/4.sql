@@ -23,7 +23,7 @@ insert into sd_sql.student values(4,'Rishabh',78.76,'B');
 select * from student;
 
 -- Try selecting For Role User
-select * from sd_sql.student;
+select * from sd_sql.employees;
 
 
 
