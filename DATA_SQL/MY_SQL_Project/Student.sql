@@ -1,1 +1,3 @@
--- ONLY SELECT / VIIEW COMMAND
+use instituteDB;
+-- Grant Only Select
+select * from student_dashboards;
